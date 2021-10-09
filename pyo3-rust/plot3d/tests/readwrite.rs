@@ -1,14 +1,11 @@
-use PLOT3D::read_plot3d;
+use plot3d::read::read_plot3d;
+use std::io::Error; 
 
-#[cfg(test)]
-mod reading_writing_tests{
-
-    #[test]
-    #[should_panic]
-    fn should_read_plot3d() {
-        let filename = &"../example_files/PahtCascade-ASCII.xyz";
-        read_plot3d(filename, false,false);
-        assert!(1==1);
-        panic!("oh no");
-    }
+#[test]
+#[should_panic]
+fn should_read_plot3d() {
+    let filename = &"../example_files/PahtCascade-ASCII.xyz";
+    let result: Result<(),Error> = read_plot3d(filename,None,None);
+    assert!(1==1);
+    panic!("oh no");
 }
