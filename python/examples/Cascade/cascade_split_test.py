@@ -14,7 +14,7 @@ import pickle
 def find_connectivity():
     if not os.path.exists('connectivity-block-split.pickle'):
         blocks = read_plot3D('../../../testfiles/finalmesh.xyz', binary = True, big_endian=False)
-        blocks_split = split_blocks(blocks,300000, direction=Direction.i)
+        blocks_split = split_blocks(blocks,380000, direction=Direction.i)
         write_plot3D('finalmesh_split.xyz',blocks_split,binary=True)
         # Note: Block splits may not be exactly matching with each other so we have to run the connecitvity code again 
         face_matches, outer_faces_formatted = connectivity(blocks_split)
